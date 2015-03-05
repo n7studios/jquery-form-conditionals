@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+	<!-- Meta -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+	<title>jQuery Form Conditionals Example</title>	
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<style type="text/css">
+
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<form>
+			<!-- Inputs -->
+			<h2>Inputs</h2>
+
+			<h3>No Value</h3>
+			<input type="text" name="text1" value="" data-conditional="text1" />
+			<div id="text1">
+				Input: This will display when the input has a value. Because the input does not have a value on load, this will be hidden until a value is specified.
+			</div>
+
+			<h3>Value</h3>
+			<input type="text" name="text2" value="hello" data-conditional="text2" />
+			<div id="text2">
+				Input: This will display when the input has a value. Because the input does have a value on load, this will be displayed until the value is removed.
+			</div>
+
+			<h3>Inverse</h3>
+			<input type="text" name="text3" value="" data-conditional="text3" data-condition-display="false" />
+			<div id="text3">
+				Input: This will display when the input does <strong>not</strong> have a value. 
+			</div>
+
+			<hr />
+
+			<!-- Checkbox -->
+			<h2>Checkboxes</h2>
+
+			<h3>Unchecked</h3>
+			<input type="checkbox" name="checkbox1" value="1" data-conditional="checkbox1" />
+			<div id="checkbox1">
+				Checkbox: This will display when the checkbox is checked. Because the checkbox is not checked on load, this will be hidden until the checkbox is toggled.
+			</div>
+
+			<h3>Checked</h3>
+			<input type="checkbox" name="checkbox2" value="1" data-conditional="checkbox2" checked />
+			<div id="checkbox2">
+				Checkbox: This will display when the checkbox is checked. Because the checkbox is checked on load, this will display until the checkbox is toggled.
+			</div>
+
+			<h3>Inverse</h3>
+			<input type="checkbox" name="checkbox3" value="1" data-conditional="checkbox3" data-condition-display="false" />
+			<div id="checkbox3">
+				Checkbox: This will display when the checkbox is <strong>unchecked</strong>.
+			</div>
+
+			<hr />
+
+			<!-- Select -->
+			<h2>Select</h2>
+
+			<h3>Unchecked</h3>
+			<select name="select" size="1" data-conditional="select1">
+				<option value="">No Value - DOM element below will not display when this option is selected.</option>
+				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
+				<option value="anything">Value - DOM element below will display when this option is selected.</option>
+			</select>
+			<div id="select1">
+				Select: This will display when the select option is not empty and not zero.
+			</div>
+
+			<h3>Inverse</h3>
+			<select name="select" size="1" data-conditional="select2" data-condition-display="false">
+				<option value="">No Value - DOM element below will not display when this option is selected.</option>
+				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
+				<option value="anything">Value - DOM element below will display when this option is selected.</option>
+			</select>
+			<div id="select2">
+				Select: This will display when the select option is empty or is zero.
+			</div>
+
+			<hr />
+
+		</form>
+	</strong>
+
+	<!-- Conditionals -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="../jquery.form-conditionals-min.js"></script>
+	<script>
+		jQuery(document).ready(function($) {
+			$('input,select').conditional();
+		});
+	</script>
+</body>
+</html>
