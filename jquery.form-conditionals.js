@@ -17,6 +17,8 @@
 		// Default Settings
 		var settings = $.extend({
 			data: 'conditional',
+			value: 'conditional-value',
+			displayOnEnabled: 'conditional-display'
 		}, options);
 
 		// Setup conditionals on each DOM element
@@ -29,6 +31,7 @@
 			// Setup vars
 			var conditionalElements,
 				displayOnEnabled,
+				value,
 				displayElements;
 			
 			// Toggle + toggle on change
@@ -37,9 +40,15 @@
 				conditionalElements = $( this ).data( settings.data ).split(',');
 
 				// Determine whether to display DOM elements when the input is 'enabled'
-				displayOnEnabled = $( this ).data( 'condition-display' );
+				displayOnEnabled = $( this ).data( settings.displayOnEnabled );
 				if ( typeof displayOnEnabled === 'undefined' ) {
 					displayOnEnabled = true;
+				}
+
+				// Determine the value required to display elements
+				value = $( this ).data( settings.value );
+				if ( typeof value === 'undefined' ) {
+					value = '';
 				}
 
 				// By default, don't display elements
@@ -57,14 +66,20 @@
 					
 					default:
 						if ( displayOnEnabled ) {
-							displayElements = ( ( $( this ).val() === '' || $( this ).val() === '0' ) ? false : true );
+							if ( value !== '' ) {
+								displayElements = ( ( $( this ).val() !== value ) ? false : true );
+							} else {
+								displayElements = ( ( $( this ).val() === '' || $( this ).val() === '0' ) ? false : true );	
+							}
 						} else {
-							displayElements = ( ( $( this ).val() === '' || $( this ).val() === '0' ) ? true : false );
+							if ( value !== '' ) {
+								displayElements = ( ( $( this ).val() !== value ) ? true : false );
+							} else {
+								displayElements = ( ( $( this ).val() === '' || $( this ).val() === '0' ) ? true : false );
+							}
 						}
 						break;
 				}
-
-
 
 				// Show/hide elements
 				for (var i = 0; i < conditionalElements.length; i++) {

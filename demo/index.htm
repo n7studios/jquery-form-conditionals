@@ -34,9 +34,15 @@
 				Input: This will display when the input has a value. Because the input does have a value on load, this will be displayed until the value is removed.
 			</div>
 
-			<h3>Inverse</h3>
-			<input type="text" name="text3" value="" data-conditional="text3" data-condition-display="false" />
+			<h3>Specific Value</h3>
+			<input type="text" name="text3" value="one" data-conditional="text3" data-conditional-value="one" />
 			<div id="text3">
+				Input: This will display when the input has a value = <i>one</i>. Because the input does have this value on load, this will be displayed until the value is removed.
+			</div>
+
+			<h3>Inverse</h3>
+			<input type="text" name="text4" value="" data-conditional="text3" data-conditional-display="false" />
+			<div id="text4">
 				Input: This will display when the input does <strong>not</strong> have a value. 
 			</div>
 
@@ -58,7 +64,7 @@
 			</div>
 
 			<h3>Inverse</h3>
-			<input type="checkbox" name="checkbox3" value="1" data-conditional="checkbox3" data-condition-display="false" />
+			<input type="checkbox" name="checkbox3" value="1" data-conditional="checkbox3" data-conditional-display="false" />
 			<div id="checkbox3">
 				Checkbox: This will display when the checkbox is <strong>unchecked</strong>.
 			</div>
@@ -68,9 +74,9 @@
 			<!-- Select -->
 			<h2>Select</h2>
 
-			<h3>Unchecked</h3>
+			<h3>No Value</h3>
 			<select name="select" size="1" data-conditional="select1">
-				<option value="">No Value - DOM element below will not display when this option is selected.</option>
+				<option value="" selected>No Value - DOM element below will not display when this option is selected.</option>
 				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
 				<option value="anything">Value - DOM element below will display when this option is selected.</option>
 			</select>
@@ -78,14 +84,57 @@
 				Select: This will display when the select option is not empty and not zero.
 			</div>
 
-			<h3>Inverse</h3>
-			<select name="select" size="1" data-conditional="select2" data-condition-display="false">
+			<h3>Value</h3>
+			<select name="select" size="1" data-conditional="select2">
+				<option value="">No Value - DOM element below will not display when this option is selected.</option>
+				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
+				<option value="anything" selected>Value - DOM element below will display when this option is selected.</option>
+			</select>
+			<div id="select2">
+				Select: This will display when the select option is not empty and not zero.
+			</div>
+
+			<h3>Specific Value</h3>
+			<select name="select" size="1" data-conditional="select3" data-conditional-value="anything">
+				<option value="">No Value - DOM element below will not display when this option is selected.</option>
+				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
+				<option value="ABC" selected>ABC - DOM element below will not display when this option is selected.</option>
+				<option value="anything" selected>Value - DOM element below will display when this option is selected.</option>
+			</select>
+			<div id="select3">
+				Select: This will display when the select option = the last option. Because this is already selected on load, this will 
+				be displayed until the option is changed to something else.
+			</div>
+
+			<h3>No Value, Inverse</h3>
+			<select name="select" size="1" data-conditional="select4" data-conditional-display="false">
 				<option value="">No Value - DOM element below will not display when this option is selected.</option>
 				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
 				<option value="anything">Value - DOM element below will display when this option is selected.</option>
 			</select>
-			<div id="select2">
+			<div id="select4">
 				Select: This will display when the select option is empty or is zero.
+			</div>
+
+			<h3>Value, Inverse</h3>
+			<select name="select" size="1" data-conditional="select5" data-conditional-display="false">
+				<option value="">No Value - DOM element below will not display when this option is selected.</option>
+				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
+				<option value="anything" selected>Value - DOM element below will display when this option is selected.</option>
+			</select>
+			<div id="select5">
+				Select: This will display when the select option is not = the last option.
+			</div>
+
+			<h3>Specific Value, Inverse</h3>
+			<select name="select" size="1" data-conditional="select6" data-conditional-value="anything" data-conditional-display="false">
+				<option value="">No Value - DOM element below will not display when this option is selected.</option>
+				<option value="0">Zero Value - DOM element below will not display when this option is selected.</option>
+				<option value="ABC" selected>ABC - DOM element below will not display when this option is selected.</option>
+				<option value="anything" selected>Value - DOM element below will display when this option is selected.</option>
+			</select>
+			<div id="select6">
+				Select: This will display when the select option is not = the last option.
 			</div>
 
 			<hr />
