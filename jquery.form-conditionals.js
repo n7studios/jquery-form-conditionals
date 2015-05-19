@@ -67,7 +67,7 @@
 					default:
 						if ( displayOnEnabled ) {
 							if ( value !== '' ) {
-								displayElements = ( ( $( this ).val() !== value ) ? false : true );
+								displayElements = ( ( String( $( this ).val() ) !== String( value ) ) ? false : true );
 							} else {
 								displayElements = ( ( $( this ).val() === '' || $( this ).val() === '0' ) ? false : true );	
 							}
